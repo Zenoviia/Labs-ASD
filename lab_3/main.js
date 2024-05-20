@@ -22,6 +22,7 @@ const randomizer = (seed) => {
 
 }
 
+//створення напрямленої матриці
 const createDirMatrix = (strVariant) => {
 
   const arr = [...String(strVariant)].map(Number);
@@ -40,6 +41,7 @@ const createDirMatrix = (strVariant) => {
 
 };
 
+//створення ненапрямленої матриці
 const createUndirMatrix  = (arr) => {
 
   let undirectedMatrix = arr.map((row) => row.slice());
@@ -63,7 +65,8 @@ const undirectedMatrix = createUndirMatrix (directedMatrix);
 console.log("The adjacency matrix of an undirected graph:");
 console.log(createUndirMatrix (directedMatrix));
 
-const renderCircle = (canvasContext, x, y, number) => {
+//створення кругів(вершин)
+const  = (canvasContext, x, y, number) => {
 
   canvasContext.beginPath();
   canvasContext.arc(x, y, vertexRadius, 0, 2 * Math.PI);
@@ -84,6 +87,7 @@ const renderCircle = (canvasContext, x, y, number) => {
 
 };
 
+//Обчислення координатів вершин напрямленого графа
 let renderDirectedGraphVertices = (canvasContext, vertexSpacing, x = startXDirected, y = startYCoord) => {
 
   let curX = x;
@@ -129,6 +133,7 @@ let renderDirectedGraphVertices = (canvasContext, vertexSpacing, x = startXDirec
 
 };
 
+//Обчислення координатів вершин напрямленого графа
 let renderUndirectedGraphVertices = (canvasContext, vertexSpacing, x = startXUndirected, y = startYCoord) => {
   return renderDirectedGraphVertices(canvasContext, vertexSpacing, x, y);
 };
@@ -147,6 +152,7 @@ undirectedVertexCoords.forEach((vertex, index) => {
   undirectedGraphVertexMatrix[index] = vertex;
 });
 
+//петля
 let renderLoop = (startEl, arrowDistance = 30) => {
 
   let controlX1 = startEl.x - 70;
@@ -168,6 +174,7 @@ let renderLoop = (startEl, arrowDistance = 30) => {
 
 };
 
+//стрілка для петлі
 let renderLoopArrow = (startEl, arrowSize = 8, arrowColor = "#FF1493") => {
 
   let arrow = renderLoop(startEl);
@@ -191,6 +198,7 @@ let renderLoopArrow = (startEl, arrowSize = 8, arrowColor = "#FF1493") => {
 
 };
 
+//пряма
 let renderLine = (start, end) => {
 
   let angle = Math.atan2(end.y - start.y, end.x - start.x);
@@ -206,6 +214,7 @@ let renderLine = (start, end) => {
 
 };
 
+//стрілка для прямої
 let renderLineArrow = (start, end) => {
 
   let line = renderLine(start, end);
@@ -230,6 +239,7 @@ let renderLineArrow = (start, end) => {
 
 };
 
+//дуга
 let renderCurve = (start, end, arrowDistance = 20, bendAngle = Math.PI / 8) => {
   
   let midX = (start.x + end.x) / 2;
@@ -264,6 +274,7 @@ let renderCurve = (start, end, arrowDistance = 20, bendAngle = Math.PI / 8) => {
 
 };
 
+//стрілка для дуги
 let renderCurveArrow = (start, end, arrowDistance = 20, arrowSize = 10, arrowColor = "#1E90FF", bendAngle = Math.PI / 1) => {
   
   let arrow = renderCurve(start, end, arrowDistance, bendAngle);
@@ -287,6 +298,7 @@ let renderCurveArrow = (start, end, arrowDistance = 20, arrowSize = 10, arrowCol
 
 };
 
+//перевірка на наявність вершини між двома іншими
 let findInterveningVertex = (v1, v2, coords) => {
 
   for (let i = 0; i < coords.length; i++) {
@@ -312,6 +324,7 @@ let findInterveningVertex = (v1, v2, coords) => {
 
 };
 
+//напрямлений граф
 let renderDirectedGraph = (directedMatrix) => {
 
   let dirMat = directedMatrix;
@@ -360,6 +373,7 @@ let renderDirectedGraph = (directedMatrix) => {
   }
 };
 
+//ненапрямлений граф
 let renderUndirectedGraph = (undirectedMatrix) => {
 
   let unDirMat = undirectedMatrix;
@@ -388,4 +402,3 @@ renderUndirectedGraph(undirectedMatrix);
 
 renderDirectedGraphVertices(canvasContext, vertexSpacing);
 renderUndirectedGraphVertices(canvasContext, vertexSpacing);
-
