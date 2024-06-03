@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  background-color: #f7e4e8;
+}
+
+#canvas-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+canvas {
+  background: radial-gradient(circle, #f2f2f2, #fbe6ea);
+  border: 6px solid #fe5b79;
+  box-shadow: 0 0 50px rgba(255, 192, 203, 1);
+  animation: fadeIn 1s ease-out;
+}
+
+#canvas-container[role="main"] {
+  outline: none;
+}
